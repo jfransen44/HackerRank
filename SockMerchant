@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int c[] = new int[n];
+        for(int c_i=0; c_i < n; c_i++){
+            c[c_i] = in.nextInt();
+        }
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++){
+    	   int x = 0;
+    	   if(map.get(c[i]) != null)
+         	  x = map.get(c[i]);
+            map.put(c[i], (x + 1));
+        }
+    	
+       Set set = map.entrySet();
+	   Iterator it = set.iterator();
+       while (it.hasNext()){
+            Map.Entry m = (Map.Entry)it.next();
+            sum += (Integer)m.getValue() / 2;
+        }
+        System.out.println(sum);
+    }
+}
+
