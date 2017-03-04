@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int[] a = new int [n + 1];
+        for (int j = 1; j <= n; j++){
+            a[j]= scan.nextInt();
+        }
+
+        for (int x = 1; x <= n; x++){
+            System.out.println(find(a, find(a, x)));
+        }
+    }
+    public static int find(int[] a, int x){
+        int ret = 0;
+        for (int i = 1; i < a.length; i++){
+            if (a[i] == x)
+                ret = i;
+        } 
+        return ret;
+    }
+}
+
