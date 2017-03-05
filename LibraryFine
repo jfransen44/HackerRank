@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */      Scanner s = new Scanner(System.in);
+        int inDay = s.nextInt();
+        int inMonth = s.nextInt();
+        int inYear = s.nextInt();
+        int dueDay = s.nextInt();
+        int dueMonth = s.nextInt();
+        int dueYear = s.nextInt();
+        int fine = 0;
+        if (inMonth == dueMonth && inYear == dueYear && inDay > dueDay){
+            fine = (inDay - dueDay) * 15;
+        } 
+        if (inYear == dueYear && inMonth > dueMonth){
+            fine = (inMonth - dueMonth) * 500;
+        }
+        if (inYear > dueYear){
+            fine = (inYear - dueYear) * 10000;
+        }
+        
+        System.out.println(fine);
+    }
+}
